@@ -23,13 +23,18 @@ def construct_pairs():
     target_number=check_numeric_value(target_number,"يرجى ادخال الرقم الهدف, يجب أن يكون عدداً صحيحاً وموجباً")
     # تعمل حلقات For التالية على البحث عن الأزواج في الأرقام المدخلة التي يمكن أن يكون مجموعها يساوي الرقم الهدف
     for x in range(len(num_list)-1):#تكرر هذه الحلقة 9 مرات لأنه سوف يتم فحص العدد قبل الأخير مع العدد الأخير في الحلقة التالية
-        for y in range(len(num_list)):
+        for y in range(x,len(num_list)):
             if num_list[x]+num_list[y] == target_number:#التحقق اذا كان مجموع العددين يساوي العدد الهدف
                 pair_list.append(sorted([num_list[x],num_list[y]]))# في حال كان العددين يحققان الشرط يتم انشاء قائمة تحوي العددين بعد ترتيبهما ثم اضافة هذه القائمة الى قائمة pair list
     if len(pair_list) == 0:#
         print("لا يوجد أي زوج يحقق الهدف")
     else:
-        pair_list=list(set(tuple(x) for x in pair_list))#الهدف من هذه السطر التخلص من الأزواج المكررة فالنوع set لا يقبل أن يحوي متغيرات مكررة لذلك في حال وجود tuples  تحوي نفس الأرقام   يتم حذفها
         print(pair_list)
+        unique_list_value=[]
+        for x in pair_list:
+            if x not in unique_list_value:
+                unique_list_value.append(x)
+        #pair_list=list(set(tuple(x) for x in pair_list))#الهدف من هذه السطر التخلص من الأزواج المكررة فالنوع set لا يقبل أن يحوي متغيرات مكررة لذلك في حال وجود tuples  تحوي نفس الأرقام   يتم حذفها
+        print(unique_list_value)
 
 construct_pairs()
