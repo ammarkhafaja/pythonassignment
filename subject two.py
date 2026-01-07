@@ -34,7 +34,6 @@ def construct_pairs():
         for x in pair_list:
             if x not in unique_list_value:
                 unique_list_value.append(x)
-        #pair_list=list(set(tuple(x) for x in pair_list))#الهدف من هذه السطر التخلص من الأزواج المكررة فالنوع set لا يقبل أن يحوي متغيرات مكررة لذلك في حال وجود tuples  تحوي نفس الأرقام   يتم حذفها
         print(unique_list_value)
 
 construct_pairs()
