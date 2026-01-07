@@ -4,19 +4,21 @@ def check_numeric_value(value,note):
     if value.isdigit():# التحقق من أن القيمة المدخلة رقمية
         if int(value) >=0:# التحقق من أن القيمة المدخلة موجبة
             return int(value)
+    #في حال عدم ادخال قيمة عددية صحيحة وموجبة
     else:
+        print("يجب ادخال عدد صحيح موجب")
         value = input(note)
         while True:
             if value.isdigit():
                 if int(value) >=0:
                     return int(value)
+            print("يجب ادخال عدد صحيح موجب")
             value = input(note)
-
 def construct_pairs():
     for z in range(10):#ادخال الأرقام من قبل المستخدم
         value=input("أدخل الرقم "+str(z+1)+ ": ")
         global pair_list    # تم تحويل هذا المتحول الى global لتكون القيم التي سوف يأخذها داخل مجال حلقة for متاحة للتعامل معها خارج هذا المجال
-        num_list.append(check_numeric_value(value,"يجب ادخال عدد صحيح موجب")) # التحقق من أن الرقم المدخل رقم صحيح وموجب
+        num_list.append(check_numeric_value(value,f"أدخل الرقم {z+1}: ")) # التحقق من أن الرقم المدخل رقم صحيح وموجب ثم اضافته الى قائمة الأرقام
     target_number=input("أدخل الرقم الهدف: ") # ادخال العدد الهدف
     target_number=check_numeric_value(target_number,"يرجى ادخال الرقم الهدف, يجب أن يكون عدداً صحيحاً وموجباً")
     # تعمل حلقات For التالية على البحث عن الأزواج في الأرقام المدخلة التي يمكن أن يكون مجموعها يساوي الرقم الهدف
